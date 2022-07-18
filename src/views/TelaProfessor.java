@@ -4,6 +4,8 @@
  */
 package views;
 
+import models.Usuario;
+
 /**
  *
  * @author alyso
@@ -35,9 +37,14 @@ public class TelaProfessor extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         BotaoSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        nomeUsuario = new javax.swing.JLabel();
+        J_NomeUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                pre_carregamento(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -113,9 +120,9 @@ public class TelaProfessor extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/imagens/professor_icon.png"))); // NOI18N
 
-        nomeUsuario.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        nomeUsuario.setForeground(new java.awt.Color(0, 102, 0));
-        nomeUsuario.setText("nome");
+        J_NomeUsuario.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        J_NomeUsuario.setForeground(new java.awt.Color(0, 102, 0));
+        J_NomeUsuario.setText("nome");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -130,7 +137,7 @@ public class TelaProfessor extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(nomeUsuario))
+                        .addComponent(J_NomeUsuario))
                     .addComponent(jLabel1))
                 .addGap(22, 22, 22))
         );
@@ -140,7 +147,7 @@ public class TelaProfessor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nomeUsuario)
+                .addComponent(J_NomeUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BotaoSair)
                 .addGap(15, 15, 15))
@@ -186,6 +193,10 @@ public class TelaProfessor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BotaoSairActionPerformed
 
+    private void pre_carregamento(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pre_carregamento
+        J_NomeUsuario.setText(Usuario.getNome()); 
+    }//GEN-LAST:event_pre_carregamento
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +234,7 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoSair;
+    private javax.swing.JLabel J_NomeUsuario;
     private javax.swing.JButton botaoHorario;
     private javax.swing.JButton botaoTurmasProf;
     private javax.swing.JLabel jLabel1;
@@ -230,7 +242,6 @@ public class TelaProfessor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel logo_menor;
-    private javax.swing.JLabel nomeUsuario;
     private javax.swing.JLabel tituloSCE1;
     // End of variables declaration//GEN-END:variables
 }
