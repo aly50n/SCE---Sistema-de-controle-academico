@@ -182,13 +182,14 @@ public class TelaLogin extends javax.swing.JFrame {
         */
         CPFUsuario.setText(CPFUsuario.getText().trim().replaceAll("[.,-]", ""));
         if(CPFUsuario.getText().length() == 11 && CPFUsuario.getText().matches("[0-9]+") && SenhaUsuario.getText().length() > 0){
-            new Sql("SELECT senha,tipo FROM dadosCadastrais WHERE cpf = '"+CPFUsuario.getText()+"'"){
+            new Sql("SELECT senha,tipo,nome FROM dadosCadastrais WHERE cpf = '"+CPFUsuario.getText()+"'"){
                 @Override
                 public void onQueryConcluida(ResultSet rs) {
                     try{
                         if(rs.next()){
                             String senha = rs.getString("senha");
                             String tipo = rs.getString("tipo");
+                            Usuario.setNome(rs.getString("nome"));
                             if(senha.equals(SenhaUsuario.getText())){
                                 if(tipo.equals("Administrativo")) new TelaAdmin().setVisible(true);
                                 else if(tipo.equals("Professor")) new TelaProfessor().setVisible(true);

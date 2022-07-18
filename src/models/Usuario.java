@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class Usuario {
     private int id;
-    private String nome;
+    private static String nome;
     private String cpf;
     private String tipo;
     private Date dataDeNascimento;
@@ -60,12 +60,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNome() {
+    public static String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public static void setNome(String nome) {
+        Usuario.nome = nome;
     }
 
     public String getCpf() {
