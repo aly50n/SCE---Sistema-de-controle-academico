@@ -31,6 +31,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         botaoTurmasProf = new javax.swing.JButton();
         botaoHorario = new javax.swing.JButton();
+        botaoInserirNotas = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         logo_menor = new javax.swing.JLabel();
         tituloSCE1 = new javax.swing.JLabel();
@@ -61,16 +62,27 @@ public class TelaProfessor extends javax.swing.JFrame {
             }
         });
 
+        botaoInserirNotas.setForeground(new java.awt.Color(0, 102, 0));
+        botaoInserirNotas.setText("Inserir Notas");
+        botaoInserirNotas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 0)));
+        botaoInserirNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoInserirNotasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
+                .addGap(96, 96, 96)
                 .addComponent(botaoHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(88, 88, 88)
+                .addComponent(botaoInserirNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(botaoTurmasProf, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197))
+                .addGap(110, 110, 110))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,7 +90,8 @@ public class TelaProfessor extends javax.swing.JFrame {
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoTurmasProf, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoInserirNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36))
         );
 
@@ -197,6 +210,10 @@ public class TelaProfessor extends javax.swing.JFrame {
         J_NomeUsuario.setText(Usuario.getNome()); 
     }//GEN-LAST:event_pre_carregamento
 
+    private void botaoInserirNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirNotasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoInserirNotasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -236,6 +253,7 @@ public class TelaProfessor extends javax.swing.JFrame {
     private javax.swing.JButton BotaoSair;
     private javax.swing.JLabel J_NomeUsuario;
     private javax.swing.JButton botaoHorario;
+    private javax.swing.JButton botaoInserirNotas;
     private javax.swing.JButton botaoTurmasProf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
