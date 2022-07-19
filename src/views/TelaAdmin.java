@@ -269,7 +269,6 @@ public class TelaAdmin extends javax.swing.JFrame {
     private void botaoCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroUsuarioActionPerformed
         JOptionPane.showMessageDialog(null,"Preencha os campos corretamente \npara o cadastro!");
         new TelaCadastroUsuario().setVisible(true);
-        this.dispose(); 
     }//GEN-LAST:event_botaoCadastroUsuarioActionPerformed
 
     private void BotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairActionPerformed
