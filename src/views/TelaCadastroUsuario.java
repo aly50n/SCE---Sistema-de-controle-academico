@@ -6,7 +6,6 @@ package views;
 
 import java.sql.ResultSet;
 import models.Usuario;
-
 import javax.swing.*;
 import java.util.Date;
 import sql.Sql;
@@ -53,10 +52,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         BotaoSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        nomeUsuario1 = new javax.swing.JLabel();
+        J_NomeUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                pre_carregamento(evt);
+            }
+        });
 
         caixaItem_tipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "________________", "Administrativo", "Professor", "Aluno" }));
         caixaItem_tipoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -200,9 +204,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/imagens/administrador_icon.png"))); // NOI18N
 
-        nomeUsuario1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        nomeUsuario1.setForeground(new java.awt.Color(0, 102, 0));
-        nomeUsuario1.setText("nome");
+        J_NomeUsuario.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        J_NomeUsuario.setForeground(new java.awt.Color(0, 102, 0));
+        J_NomeUsuario.setText("nome");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -218,7 +222,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(nomeUsuario1))
+                                .addComponent(J_NomeUsuario))
                             .addComponent(jLabel1))
                         .addGap(20, 20, 20))))
         );
@@ -228,7 +232,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nomeUsuario1)
+                .addComponent(J_NomeUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoSair)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -259,11 +263,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_caixaItem_tipoUsuarioActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-        new TelaAdmin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
     private void cadastroConcluido(){
-        new TelaLogin().setVisible(true);
+        new TelaAdmin().setVisible(true);
         this.dispose();
         
     }
@@ -303,7 +306,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
                     @Override
                     public void onQueryErro(String feedback) {
-                        JOptionPane.showMessageDialog(null,"Erro ao efetivar o cadastro, verifique sua conexão com a internet!");
+                        JOptionPane.showMessageDialog(null,"Erro ao efetivar o cadastro\n-Verifique sua conexão com a internet!\n-Verifique se o usuário já é existente!");
                     }
                 }.start();
             }catch (Exception e){
@@ -319,6 +322,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         new TelaLogin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BotaoSairActionPerformed
+
+    private void pre_carregamento(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pre_carregamento
+        J_NomeUsuario.setText(Usuario.getNome());
+    }//GEN-LAST:event_pre_carregamento
 
     /**
      * @param args the command line arguments
@@ -358,7 +365,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoSair;
-    private javax.swing.JButton BotaoSair3;
+    private javax.swing.JLabel J_NomeUsuario;
     private javax.swing.JButton botaoCadastrarUsuario;
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JComboBox<String> caixaItem_tipoUsuario;
@@ -367,10 +374,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel logo_menor;
     private javax.swing.JTextField nomeUsuario;
-    private javax.swing.JLabel nomeUsuario1;
     private javax.swing.JPasswordField senhaUsuario;
     private javax.swing.JLabel tituloSCE;
     private javax.swing.JLabel tituloSCE1;
